@@ -269,9 +269,9 @@ def train(dataset, model, args, same_feat=True, val_dataset=None, test_dataset=N
     else:
         plt.plot(best_val_epochs, best_val_accs, 'bo')
         plt.legend(['train', 'val'])
-    plt.savefig(gen_train_plt_name(args), dpi=600)
+    plt.savefig(gen_train_plt_name(args) + "-" + str(time.time()) + ".png", dpi=600)
     plt.close()
-    matplotlib.style.use('default')
+    matplotlib.pyplot.style.use('default')
 
     return model, val_accs
 
@@ -287,7 +287,7 @@ def prepare_data(graphs, args, test_graphs=None, max_nodes=0):
     else:
         train_idx = int(len(graphs) * args.train_ratio)
         train_graphs = graphs[:train_idx]
-        val_graphs = graph[train_idx:]
+        val_graphs = graphs[train_idx:]
     print('Num training graphs: ', len(train_graphs), 
           '; Num validation graphs: ', len(val_graphs),
           '; Num testing graphs: ', len(test_graphs))
@@ -598,15 +598,15 @@ def arg_parse():
                         logdir='log',
                         dataset='syn1v2',
                         max_nodes=1000,
-                        cuda='1',
+                        cuda='0',
                         feature_type='default',
                         lr=0.001,
                         clip=2.0,
                         batch_size=20,
-                        num_epochs=1000,
+                        num_epochs=10,
                         train_ratio=0.8,
                         test_ratio=0.1,
-                        num_workers=1,
+                        num_workers=8,
                         input_dim=10,
                         hidden_dim=20,
                         output_dim=20,
