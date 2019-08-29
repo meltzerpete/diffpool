@@ -11,7 +11,7 @@ def read_graphfile(datadir, dataname, max_nodes=None):
     Returns:
         List of networkx objects with graph and node labels
     '''
-    prefix = os.path.join(datadir, dataname, dataname)
+    prefix = os.path.join(datadir, dataname, 'raw', dataname)
     filename_graph_indic = prefix + '_graph_indicator.txt'
     # index of graphs that a given node belongs to
     graph_indic={}
