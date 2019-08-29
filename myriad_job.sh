@@ -8,10 +8,10 @@
 #$ -l gpu=1
 
 # 2. Request ten minutes of wallclock time (format hours:minutes:seconds).
-#$ -l h_rt=1:00:0
+#$ -l h_rt=36:00:0
 
 # 3. Request 1 gigabyte of RAM (must be an integer)
-#$ -l mem=8G
+#$ -l mem=16G
 
 # 4. Request 15 gigabyte of TMPDIR space (default is 10 GB)
 #$ -l tmpfs=15G
