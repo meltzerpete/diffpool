@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-#for DATASET in MUTAG PTC_FM NCI1 ; do
-#for DATASET in NCI1 ; do
-for DATASET in ISOMORPHISM ; do
-#    for ASSIGN in 0.1 0.2 0.3 ; do
-    for ASSIGN in 0.3 ; do
+for DATASET in PTC_FR PTC_MM PTC_MR NCI109 ; do
+    for ASSIGN in 0.1 0.2 0.3 ; do
         for H1 in 30 40 50 ; do
             for H2 in 30 40 50 ; do
                 echo ${DATASET} ${ASSIGN} ${H1} ${H2}
