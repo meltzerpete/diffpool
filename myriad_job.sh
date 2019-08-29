@@ -37,8 +37,11 @@ module load cuda/10.0.130/gnu-4.9.2
 source $HOME/.bashrc
 conda activate torch-gpu
 
-chmod +x $HOME/diffpool/benchmark.sh
-$HOME/diffpool/benchmark.sh
+cp -r $HOME/diffpool
+cd diffpool
+
+chmod +x benchmark.sh
+./benchmark.sh
 
 # 10. Preferably, tar-up (archive) all output files onto the shared scratch area
 tar zcvf $HOME/Scratch/files_from_job_$JOB_ID.tar.gz $TMPDIR
