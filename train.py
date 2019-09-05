@@ -287,11 +287,7 @@ def train(dataset, model, args, same_feat=True, val_dataset=None, test_dataset=N
 
 def prepare_data(graphs, args, test_graphs=None, max_nodes=0):
     random.shuffle(graphs)
-    if args.num_train is not None:
-        train_idx = args.num_train
-        train_graphs = graphs[:train_idx]
-        val_graphs = graphs[train_idx:]
-    elif test_graphs is None:
+    if test_graphs is None:
         train_idx = int(len(graphs) * args.train_ratio)
         test_idx = int(len(graphs) * (1 - args.test_ratio))
         train_graphs = graphs[:train_idx]

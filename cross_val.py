@@ -11,16 +11,11 @@ from graph_sampler import GraphSampler
 def prepare_val_data(graphs, args, val_idx, max_nodes=0):
     random.shuffle(graphs)
 
-    if args.num_train is not None:
-        train_graphs = graphs[:args.num_train]
-        val_graphs = graphs[args.num_train:]
-    else:
-        val_size = len(graphs) // 10
-        train_graphs = graphs[:val_idx * val_size]
-        if val_idx < 9:
-            train_graphs = train_graphs + graphs[(val_idx + 1) * val_size:]
-        val_graphs = graphs[val_idx * val_size: (val_idx + 1) * val_size]
-
+    val_size = len(graphs) // 10
+    train_graphs = graphs[:val_idx * val_size]
+    if val_idx < 9:
+        train_graphs = train_graphs + graphs[(val_idx + 1) * val_size:]
+    val_graphs = graphs[val_idx * val_size: (val_idx + 1) * val_size]
     print('Num training graphs: ', len(train_graphs),
           '; Num validation graphs: ', len(val_graphs))
 
