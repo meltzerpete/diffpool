@@ -19,7 +19,7 @@ for DATASET in PTC_FM PTC_FR PTC_MM PTC_MR ; do
                         --output-dim=${H2} \
                         --cuda=0 \
                         --num-classes=2 \
-                        --method=soft-assign > small_train/${DATASET}-${ASSIGN}-${H1}-${H2}.log
+                        --method=soft-assign > small_train/${DATASET}-${ASSIGN}-${H1}-${H2}-${NUM_TRAIN}.log
                 done
             done
         done
